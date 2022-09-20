@@ -1,7 +1,7 @@
 # kubernetes-ide
 IDE for kubernetes
 
-Select and download ide-doc.tar.gz and access index.html with a browser for more details.
+
 
 The RDEI IDE is a visual development environment for RDEI and Kubernetes. It can be used to learn kubernetes or to develop prototypes in the RDEI environment. It allows to build applications (called projects) by creating, importing and associating kubernetes resources. These projects can be saved and executed in one of your namespaces.
 

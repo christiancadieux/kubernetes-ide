@@ -24,7 +24,7 @@ Kubernetes IDE is also useful for documentation. Here is an example of a project
 
 ## Exposing relationships between resources
 
-The Kubernetes IDE exposes the relationships between the different resources to help understand the application. Here is an example with the PVC, secrets and env-vars used by the different deployments.
+The Kubernetes IDE shows the relationships between the different resources to help understand the application. Here is an example with the PVC, secrets and env-vars used by the different deployments.
 
 ![Screenshot from 2023-12-31 09-42-31](https://github.com/christiancadieux/kubernetes-ide/assets/10535265/621910e7-3406-48bc-b35a-b89dab9030d1)
 

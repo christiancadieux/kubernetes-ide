@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RDEI IDE </title>
+
+    
+    <link rel="stylesheet" href="assets/css/expand-macro.css">
+
+            <meta name="scroll-content-language-key" content="">
+    
+    <meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.scrollTo.min.js"></script>
+
+
+<script type="text/javascript" src="assets/js/translate.js"></script>
+
+
+<script type="text/javascript" src="assets/js/scroll-tree.js"></script>
+
+<script type="text/javascript" src="assets/js/theme.main.js"></script>
+
+    <script type="text/javascript" src="assets/js/iframeResizer.min.js"></script>
+
+<link rel="stylesheet" href="assets/css/content-style.css">
+
+<link rel="stylesheet" href="assets/css/theme.main.css">
+<link rel="stylesheet" href="assets/css/theme.colors.css">
+
+    </head>
+
+<body pageid="953581669">
+
+<div id="ht-loader">
+    <noscript>
+        <p style="width: 100%; text-align:center; position: absolute; margin-top: 200px;">This content cannot be displayed without JavaScript.<br>Please enable JavaScript and reload the page.</p>
+    </noscript>
+</div>
+
+<div>
+   	<header id="ht-headerbar-null">
+    <div class="ht-headerbar-left">
+        <a href="" id="ht-menu-toggle" class="sp-aui-icon-small sp-aui-iconfont-appswitcher"></a>
+    </div>
+    <div class="ht-headerbar-right">
+    </header>   	
+<aside id="ht-sidebar">
+
+<div style="font-size:1.4em;margin:10px 0px 10px 15px">RDEI IDE - Doc</div>
+
+<ul style="margin:20px 0px 0px 40px;font-size:1.1em" class="toc-indentation "><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-Intro">Introduction</a></p>
+</li><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-DeploymentDemo-Nginx">Deployment Demo - Nginx</a></p>
+</li><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-Projects">Projects</a></p>
+</li><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-Associationsbetweenresources">Associations between resources</a></p>
+</li><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-Resources">Resources</a></p>
+<ul class="toc-indentation "><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-SupportedResources">Supported Resources</a></p>
+</li></ul></li><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-Run">Run</a></p>
+<ul class="toc-indentation "><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-ApplySpecs">Apply Specs</a></p>
+</li><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-Restart">Restart</a></p>
+</li><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-DeleteSpecs">Delete Specs</a></p>
+</li><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-DeleteResources">Delete Resources</a></p>
+</li><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-Pods">Pods</a></p>
+</li></ul></li><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-ConfigMap">ConfigMap</a></p>
+<ul class="toc-indentation "><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-ConfigMapExample2">ConfigMap Example 2</a></p>
+</li></ul></li><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-Secrets">Secrets</a></p>
+</li><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-ServiceAccount">ServiceAccount</a></p>
+</li><li class=" "><p   
+><a   href="#src-953581669_safe-id-UkRFSUlERS1JbmdyZXNzKGJldGEp">Ingress (beta)</a></p>
+</li><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-StatefulSet">StatefulSet</a></p>
+<ul class="toc-indentation "><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-YugabyteinRDEIIDE">Yugabyte in RDEI IDE</a></p>
+</li></ul></li><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-CronJobs">CronJobs</a></p>
+</li><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-ImportSpecs">Import Specs</a></p>
+</li><li class=" "><p   
+><a   href="#src-953581669_RDEIIDE-CommonIssues">Common Issues</a></p>
+</li></ul>
+
+</aside></div>
+
+<div id="ht-wrap-container">
+
+            
+    <div id="ht-sidebar-dragbar">
+    <div class="ht-sidebar-drag-handle">
+        <span class="drag-handle-1"></span>
+        <span class="drag-handle-2"></span>
+        <span class="drag-handle-3"></span>
+    </div>
+</div>
+
+<article id="ht-content" class="ht-content" style="padding-top:10px!important">
+
+    <div id="main-content" class="wiki-content sp-grid-section" data-index-for-search="true">
+
+    <div class="section section-1" id="src-953581669_RDEIIDE-Intro">
+        <div style="height:1px"></div>
+        <h1 class="heading "><span>Introduction</span></h1>
+<p   
+>The RDEI IDE is a visual development environment for RDEI and Kubernetes. It can be used to learn kubernetes or to develop prototypes in the RDEI environment. It allows to build applications (called <strong class=" ">projects</strong>) by creating, importing and associating kubernetes resources. These projects can be saved and executed in one of your namespaces.</p>
+<p   
+>A picture is worth a thousand words - RDEI IDE is also useful for documentation. Here is an example of a project using a variety of resources:
+storage (PersistentVolume, PersistentVolumeClaim), compute (Deployment, ConfigMap, Secret), RBAC (Role, RoleBinding, ServiceAccount) and networking (Service, LoadBalancer, Ingress)
+</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/welcome2.png" alt="images/download/attachments/953581669/welcome2.png"  style="width:1200px" />
+    </p>
+<p   
+>Note: RDEI IDE works best on the <strong class=" ">night</strong> background.</p>
+<p   
+></p>
+<p   
+>Let start with an example. We will create an NGINX server in the form of a kubernetes deployment, associate our deployment with NFS storage (PV/PVC), add a service, add a Load-Balancer, create these resources in our namespace and access our new NGINX web-server using a browser. In this case, I am using a project called sample2 in my own namespace called cadieux2.</p>
+    </div>
+    <div class="section section-1" id="src-953581669_RDEIIDE-DeploymentDemo-Nginx">
+        <h1 class="heading "><span>Deployment Demo - Nginx</span></h1>
+<p   
+><strong class=" ">Video</strong>: <a target=video  href="attachments/976800633/1/ide-nginx-01.webm">ide-nginx-01.webm</a></p>
+<p   
+><strong class=" ">Deployment Steps</strong></p>
+
+
+<p><strong class=" ">1 -</strong> Select an NFS PV from the list of available PVs in your cluster. These PVs were previously created using <strong class=" ">Bindings =&gt; NFS</strong> in RDEI itself. This will create a PV resource and a PVC resource in the IDE. Only the PVC resource will be created since the PV was already created and PVs are cluster-wide resources that only RDEI itself can create.</p>
+
+<p> <strong class=" ">2 -</strong> Select NGINX from the <strong class=" ">Deployment</strong> drop-down.</p>
+
+<p>
+<img  class="confluence-embedded-image"  src="images/download/attachments/953581669/lb-select3.png" alt="images/download/attachments/953581669/lb-select3.png" width="900"  />
+    </p>
+<p   
+></p>
+<p   
+><strong class=" ">3 -</strong> Associate your Deployment with the new PVC just created. This is done by selecting the Nginx deployment and then the PVC and clicking on <strong class=" ">Connect r-dep-nginx-1 =&gt; r-pvc-nfd-ide-01</strong> at the top of the IDE screen.</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/nfs-assoc.png" alt="images/download/attachments/953581669/nfs-assoc.png" width="1000"  />
+    </p>
+<p   
+></p>
+<p   
+><strong class=" ">4 -</strong> Select a <strong class=" ">Service</strong> to get stable networking access to the pods of your deployment.</p>
+<p   
+><strong class=" ">5 -</strong> Associate your new service to the Nginx deployment. This is done with the service selector matching the deployment pods labels. More info about services <a  class="external-link" href="https://kubernetes.io/docs/concepts/services-networking/service/">Kubernetes Services</a> . The service ports are also selected.</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/dialog-service.png" alt="images/download/attachments/953581669/dialog-service.png" width="900"  />
+    </p>
+<p   
+></p>
+<p   
+><strong class=" ">6 -</strong> Select a <strong class=" ">RDEI Load-Balancer </strong>from the list of available Load-Balancers. These resources , just like the NFS PVs should already have been created using <strong class=" ">Bindings =&gt; Load Balancer</strong> in RDEI. Remember to select a green LB if your deployment is in a green zone.</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/lb-be-select.png" alt="images/download/attachments/953581669/lb-be-select.png" width="1100"  />
+    </p>
+<p   
+></p>
+<p   
+><strong class=" ">7 -</strong> Associate one Backend (specific Port) of your selected Load-Balancer to your service by selecting the Load-Balancer and the Service and clicking <strong class=" ">Connect LB =&gt; Service</strong> at the top of the page. Then select an available port of the Load-Balancer, then click on <strong class=" ">Save Backends Changes</strong> to reconfigure the Load Balancer. This will give you access to your new nginx server from outside the kubernetes cluster.</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/lb-dialog-021.png" alt="images/download/attachments/953581669/lb-dialog-021.png" width="1100"  />
+    </p>
+<p   
+></p>
+<p   
+><strong class=" ">8 - Save and Run the project. </strong>Executing '<strong class=" ">Apply</strong>' in the <strong class=" ">Project Export/Run</strong> page will do 'kubectl apply' against the specs of your project in your namespace and monitor the status of your pods. Visits the different tabs to see the status of your new resources: pods, service, PVC, deployment.</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/exec-apply.png" alt="images/download/attachments/953581669/exec-apply.png" width="1200"  />
+    </p>
+<p   
+></p>
+<p   
+><strong class=" ">9 -</strong> Now that your Nginx server is running, you can access it by right-clicking the LB in the UI and selecting the correct backend port, in this case 4002:</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/lb-right-click.png" alt="images/download/attachments/953581669/lb-right-click.png" width="500"  />
+    </p>
+<p   
+></p>
+<p   
+>Nginx is accessible by anybody at Comcast on the LoadBalancer at IP=10.54.213.147 and port 4002:</p>
+<p   
+><img  class="confluence-embedded-image confluence-content-image-border"  src="images/download/attachments/953581669/ws.png" alt="images/download/attachments/953581669/ws.png" width="1000" height="480" />
+    </p>
+<p   
+></p>
+<p   
+><strong class=" ">10 </strong>- You can export your project as a helm chart if you need to make changes outside of the RDEI IDE:</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/export.png" alt="images/download/attachments/953581669/export.png" width="1100"  />
+    </p>
+<p   
+></p>
+    </div>
+    <div class="section section-1" id="src-953581669_RDEIIDE-Projects">
+        <h1 class="heading "><span>Projects</span></h1>
+<p   
+>Projects are used to organize your applications. There are 2 types of projects : private and public. Public project can be used as templates that you can complete with PVC and Load-Balancer and then saved as private projects associated with your login.     <span style="color: #172b4d;">
+Projects can be created from scratch or by importing your own yaml files.    </span>
+</p>
+<p   
+>    <span style="color: #172b4d;">
+<img  class="confluence-embedded-image"  src="images/download/attachments/953581669/project-dialog.png" alt="images/download/attachments/953581669/project-dialog.png" width="1000"  />
+    </span>
+</p>
+<p   
+></p>
+<p   
+>Before you can save your project using <strong class=" ">Projects =&gt; Save-as</strong> , a namespace must be selected. Once your project is saved at least one, it can be created in your Kubernetes namespace using Run <img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/runbutton.png" alt="images/download/thumbnails/953581669/runbutton.png" width="50"  />
+</p>
+<p   
+>As you make changes to the resources of your project, make sure to re-save it using the <strong class=" ">re-save</strong> button <img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/re-save.png" alt="images/download/thumbnails/953581669/re-save.png"  height="27" />
+</p>
+<p   
+>Projects can be exported in the form of a yaml file or helm chart using<strong class=" "> Run =&gt; Export</strong>.</p>
+<p   
+></p>
+    </div>
+    <div class="section section-1" id="src-953581669_RDEIIDE-Associationsbetweenresources">
+        <h1 class="heading "><span>Associations between resources</span></h1>
+<p   
+>RDEI IDE understand the possible relationships between resources. When 2 resources are selected in sequence (clicked) in the UI, the IDE verify if these 2 resources can be associated. For example, a service can be associated with a deployment or a StatefulSet using the pod's labels and the service Selector. When there is an association, the IDE offers a button (top of page) and a dialog to complete the association.</p>
+<p   
+>In the IDE, the previous selection is dashed-underscore and the current-selection is underscored. Example:</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/assoc-sample.png" alt="images/download/attachments/953581669/assoc-sample.png" width="1000"  />
+    </p>
+<p   
+></p>
+    </div>
+    <div class="section section-1" id="src-953581669_RDEIIDE-Resources">
+        <h1 class="heading "><span>Resources</span></h1>
+<p   
+>Resources like deployment and services can be modified by right-clicking their object in the IDE and selecting '<strong class=" ">Edit Chart</strong>'.</p>
+<p   
+><img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/resource-right-click.png" alt="images/download/thumbnails/953581669/resource-right-click.png" width="200"  />
+    </p>
+<p   
+>The resource name can be updated using this field in the top right corner of the UI. Be careful when changing a resource name as it can affect the relationships between resources.</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/resource-name.png" alt="images/download/attachments/953581669/resource-name.png" width="1000"  />
+    </p>
+<p   
+></p>
+<p   
+>The forms are different for each resource-type but have a few common elements. This is the first tab of the deployment dialog, under <strong class=" ">Spec Attributes &gt;</strong> <strong class=" ">Info</strong></p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/deploy-info.png" alt="images/download/attachments/953581669/deploy-info.png" width="1000"  />
+    </p>
+<p   
+>The <strong class=" ">Info</strong> tab has general information about deployments like 'replicas', node-selector and Service Account.</p>
+<p   
+></p>
+<p   
+>The <strong class=" ">Containers</strong> tab include most of the information about the containers and images used by the deployment:</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/resource-cont.png" alt="images/download/attachments/953581669/resource-cont.png" width="1100"  />
+    </p>
+<p   
+></p>
+<p   
+>The '<strong class=" ">Chart (Yaml)</strong>' tab is present on all the forms and include the complete kube-spec for this resource in yaml format:</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/deploy-chart.png" alt="images/download/attachments/953581669/deploy-chart.png" width="1000"  />
+    </p>
+<p   
+></p>
+<p   
+>The IDE is bi-directional. This means that changes made directly to the yaml with be reflected in the '<strong class=" ">Spec Attributes</strong>' forms and changes to the '<strong class=" ">Spec Attributes</strong>' forms will be reflected in the <strong class=" ">Chart (Yaml)</strong> section. All the forms extract their information and save their information directly in the yaml without affecting the sections of the yaml that are not supported by the forms. So it's possible to add information directly to the yaml that is not known or understood by the IDE.</p>
+<p   
+><strong class=" ">IMPORTANT</strong>: Once a change is done to the resource, don't forget to click '<strong class=" ">Save Chart</strong>' to save your changes. This will save the changes but will not save the project itself. To make your changes permanent, you still need to <strong class=" ">re-save</strong> your project.</p>
+    <div class="section section-2" id="src-953581669_RDEIIDE-SupportedResources">
+        <h2 class="heading "><span>Supported Resources</span></h2>
+    <div  class="tablewrap">
+        <table class="wrapped confluenceTable">
+                    <colgroup>
+                                    <col />
+                                    <col />
+                                    <col />
+                                    <col />
+                            </colgroup>
+        <thead class=" ">    <tr>
+            <td  class="confluenceTh" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTh" rowspan="1" colspan="1">
+    <p   
+>Resource</p>
+            </td>
+                <td  class="confluenceTh" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTh" rowspan="1" colspan="1">
+    <p   
+>Description</p>
+            </td>
+        </tr>
+</thead><tfoot class=" "></tfoot><tbody class=" ">    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+><img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/be-256.png" alt="images/download/thumbnails/953581669/be-256.png" width="60"  />
+    </p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>LB/Backend</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>External LoadBalancer. Must be created in advance in RDEI (bindings =&gt; LB). LoadBalancers are connected to services using specific ports (often called backends).</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+><img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/crb-256.png" alt="images/download/thumbnails/953581669/crb-256.png" width="60"  />
+    </p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>ClusterRoleBinding</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>Cannot be created but will be displayed in the UI when imported.</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+><img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/cro-256.png" alt="images/download/thumbnails/953581669/cro-256.png" width="60"  />
+    </p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>ClusterRole</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>Cannot be created but will be displayed in the UI when imported</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+><img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/cm-256.png" alt="images/download/thumbnails/953581669/cm-256.png" width="60"  />
+    </p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>ConfigMap</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>key-value store used for to store configuration used by the pods. each keyname is mounted as a file in the pod file-system.</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+><img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/cj-256.png" alt="images/download/thumbnails/953581669/cj-256.png" width="60"  />
+    </p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>CronJob</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>Execute a tasks (container) at fixed interval.</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+><img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/crd-256.png" alt="images/download/thumbnails/953581669/crd-256.png" width="60"  />
+    </p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>CRD</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>CustomResourceDefinition</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>Cannot be created but will be displayed in the UI when imported. CRDs are cluster-level resources and RDEI users do not have cluster-admin capabilities.</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+><img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/daemonset-256.png" alt="images/download/thumbnails/953581669/daemonset-256.png" width="60"  />
+    </p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>DaemonSet</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>Creates a pod on each node of the kubernetes cluster.</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+><img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/hpa.png" alt="images/download/thumbnails/953581669/hpa.png" width="60"  />
+    </p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>HPA</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>HorizontalPodAutoscaler</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>Updates replicas count dynamically. There is currently minimum support for HPA in the IDE.</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+><img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/ingress-256.png" alt="images/download/thumbnails/953581669/ingress-256.png" width="60"  />
+    </p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>Ingress</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>Maps http route (host and path) to kubernetes services, Can be used with LoadBalancer and DNS to get external access.</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+><img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/job-256.png" alt="images/download/thumbnails/953581669/job-256.png" width="60"  />
+    </p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>Job</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>Execute a pod until success. Has a different lifecycle than a Pod.</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+><img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/pv-256.png" alt="images/download/thumbnails/953581669/pv-256.png" width="60"  />
+    </p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>PV</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>PersistentVolume</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>Creates storage (NFS, Portworkx) . Must be created in advance in RDEI (Bindings =&gt; NFS)</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+><img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/pvc-256.png" alt="images/download/thumbnails/953581669/pvc-256.png" width="60"  />
+    </p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>PVC</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>PersistentVolumeClaim</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>Request for storage made by a consumer (deployment, statefulset). Pods cannot access PVs directly, they access PVC that are already created or dynamically created.</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+><img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/pdb-256.png" alt="images/download/thumbnails/953581669/pdb-256.png" width="60"  />
+    </p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>PDB</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>PodDisruptionBudget</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>S    <span style="color: #4d5156;">
+pecifies the number of replicas that an application can tolerate having, relative to how many it is intended to have.    </span>
+</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+><img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/role-256.png" alt="images/download/thumbnails/953581669/role-256.png" width="60"  />
+    </p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>Role</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>A set of kubernetes RBAC capabilities.</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+><img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/rolebinding-256.png" alt="images/download/thumbnails/953581669/rolebinding-256.png" width="60"  />
+    </p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>RoleBinding</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>An association between a Role and other objects like Groups or ServiceAccount.</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+><img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/secrets.png" alt="images/download/thumbnails/953581669/secrets.png" width="60"  />
+    </p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>Secret</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>Used to store private information like passwords.</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+><img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/svc-256.png" alt="images/download/thumbnails/953581669/svc-256.png" width="60"  />
+    </p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>Service</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>    <span style="color: #4d5156;">
+Abstraction which defines a logical set of Pods and a policy by which to access them. Provides a stable IP/DNS name to access a set of pods. Can provide load-balancing.    </span>
+</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+><img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/sa-256.png" alt="images/download/thumbnails/953581669/sa-256.png" width="60"  />
+    </p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>ServiceAccount</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>Provides identity to Pods. Can be associated to a Role to give specific capabilities to a deployment.</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+><img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/sts-256.png" alt="images/download/thumbnails/953581669/sts-256.png" width="60"  />
+    </p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>StatefulSet</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>A type of deployment used for stateful applications like database where pod and PVC identity must be stable even across pod restarts. Allows VolumeClaim Templates to create different PV/PVC for each pod. Often used with Headless service to get stable DNS access to each pod. Deployment have random pod names but StatefulSet have the same podname every time (Example: statefulset=test, replicas=2, pods=test-0, test-1).</p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+    </div>
+    </div>
+    <div class="section section-1" id="src-953581669_RDEIIDE-Run">
+        <h1 class="heading "><span>Run</span></h1>
+<p   
+>The Run button gives access to the Kubernetes interface for creating , updating and deleting the resources of your project in your Kubernetes namespace:</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/run-summary.png" alt="images/download/attachments/953581669/run-summary.png" width="1100"  />
+    </p>
+<p   
+></p>
+<p   
+>The running state of the different resources can be reviewed by clicking on the tabs at the top. Resources can be filtered to only see the current project or all projects in your namespace. Logs and Events are available. It is also possible to delete resources using the <strong class=" ">delete</strong> button.</p>
+    <div class="section section-2" id="src-953581669_RDEIIDE-ApplySpecs">
+        <h2 class="heading "><span>Apply Specs</span></h2>
+<p   
+>This function will apply all the resources of your project into the namespace, equivalent to an 'kubectl apply'. It is possible to make changes your project and run apply again - Kubernetes will notice the changes and act appropriately. When the changes are done to properties that are immutable, Kubernetes will return an error.</p>
+    </div>
+    <div class="section section-2" id="src-953581669_RDEIIDE-Restart">
+        <h2 class="heading "><span>Restart</span></h2>
+<p   
+>Restart will do a 'rollout restart' of the relevant resources.</p>
+    </div>
+    <div class="section section-2" id="src-953581669_RDEIIDE-DeleteSpecs">
+        <h2 class="heading "><span>Delete Specs</span></h2>
+<p   
+>Delete all the specs in the project. Optionally, the PVC are not deleted to speed up development.</p>
+    </div>
+    <div class="section section-2" id="src-953581669_RDEIIDE-DeleteResources">
+        <h2 class="heading "><span>Delete Resources</span></h2>
+<p   
+>Delete specific resources based on type and label.</p>
+    </div>
+    <div class="section section-2" id="src-953581669_RDEIIDE-Pods">
+        <h2 class="heading "><span>Pods</span></h2>
+<p   
+>For pods that support exec, it is possible to get a bash or ssh session into the pod.</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/pod-list.png" alt="images/download/attachments/953581669/pod-list.png" width="1100"  />
+    </p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/pod-run.png" alt="images/download/attachments/953581669/pod-run.png" width="1100"  />
+    </p>
+<p   
+></p>
+<p   
+></p>
+<p   
+></p>
+    </div>
+    </div>
+    <div class="section section-1" id="src-953581669_RDEIIDE-ConfigMap">
+        <h1 class="heading "><span>ConfigMap</span></h1>
+<p   
+><strong class=" ">Video</strong>:     <span style="color: #222222;">
+<a  target=video href="attachments/976800991/1/configmap-01.webm">configmap-01.webm</a>    </span>
+</p>
+<p   
+>    <span style="color: #222222;">
+<strong class=" ">Doc</strong>: <a  class="external-link" href="https://kubernetes.io/docs/concepts/configuration/configmap/">Configmap</a>    </span>
+</p>
+<p   
+>A ConfigMap is     <span style="color: #222222;">
+used to store non-confidential data in key-value pairs. The map can be mounted in a pod and is accessible using files in the mounted directory. Here is an example where we add a ConfigMap to our web-server.    </span>
+</p>
+<p   
+><strong class=" ">1 -</strong> Create the ConfigMap, add a key called index.html with some text .</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/configmap1.png" alt="images/download/attachments/953581669/configmap1.png" width="900"  />
+    </p>
+<p   
+></p>
+<p   
+><strong class=" ">2 - </strong>Associate this ConfigMap to the Nginx deployment by clicking the deployment and then the ConfigMap.</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/configmap3.png" alt="images/download/attachments/953581669/configmap3.png" width="1000"  />
+    </p>
+<p   
+></p>
+<p   
+><strong class=" ">3 -</strong> in this form, mount the ConfigMap and change the MountPath to '/usr/share/nginx/html/test'. Since /usr/share/nginx/html is the root of this nginx web-server, we are creating a path called /test in the web-server with a new index.html file in it.</p>
+<p   
+><strong class=" ">4 -</strong> Apply the new deployment with the new ConfigMap mounted in /usr/share/nginx/html/test'</p>
+<p   
+><strong class=" ">5 - </strong>Test the web-server at IP:port/test/</p>
+<p   
+></p>
+    <div class="section section-2" id="src-953581669_RDEIIDE-ConfigMapExample2">
+        <h2 class="heading "><span>ConfigMap Example 2</span></h2>
+<p   
+>    <span style="color: #222222;">
+Let illustrate with an example using the public-project 'webserver-cmap'.    </span>
+</p>
+<p   
+>    <span style="color: #222222;">
+In this example, we have a deployment that includes a python container but the actual code of the web-server, written in python, is in the ConfigMap. This is convenient for prototyping since it's now possible to change the behavior of our web-server simply by changing the content of the ConfigMap. There is no need to create a new docker image: just change the ConfigMap, delete and re-create the ConfigMap resource and then restart the web-server pod.    </span>
+</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/cmap1.png" alt="images/download/attachments/953581669/cmap1.png" width="1000"  />
+    </p>
+<p   
+></p>
+<p   
+>    <span style="color: #222222;">
+To do this, we have to create a ConfigMap, store the python code in a ConfigMap key called 'webserver' , then point our python deployment to this configMap with a MountPath=/conf and then make sure that /conf/webserver is executed when the pods start.    </span>
+</p>
+<p   
+>    <span style="color: #222222;">
+Since the content of the ConfigMap is mounted at /conf and each key is mapped to a file in our pods, we get the content of 'webserver' at /conf/webserver in the pod.    </span>
+</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/webserver-101.png" alt="images/download/attachments/953581669/webserver-101.png" width="1100"  />
+    </p>
+<p   
+></p>
+<p   
+>    <span style="color: #222222;">
+The <strong class=" ">deployment =&gt; ConfigMap</strong> dialog:    </span>
+</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/demo2-cm.png" alt="images/download/attachments/953581669/demo2-cm.png" width="1100"  />
+    </p>
+<p   
+></p>
+<p   
+>    <span style="color: #222222;">
+The configuration of our deployment container:    </span>
+</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/demo2-cm2.png" alt="images/download/attachments/953581669/demo2-cm2.png" width="1100"  />
+    </p>
+<p   
+></p>
+    </div>
+    </div>
+    <div class="section section-1" id="src-953581669_RDEIIDE-Secrets">
+        <h1 class="heading "><span>Secrets</span></h1>
+<p   
+><strong class=" ">Doc</strong>: <a  class="external-link" href="https://kubernetes.io/docs/concepts/configuration/secret/">Secrets</a></p>
+<p   
+><strong class=" ">Video</strong>: <a target=video  href="attachments/976801032/1/secret.webm">secret.webm</a></p>
+<p   
+>Secrets can be used to store private information like passwords. Once a secret is created with key=value information, it can be used in a deployment as an environment variable.</p>
+<p   
+>Here is an example of the form for adding keys to a secret. In this case, there are 2 keys: test and password:</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/secret-04.png" alt="images/download/attachments/953581669/secret-04.png" width="1000"  />
+    </p>
+<p   
+></p>
+<p   
+>Once the secret is created, it can be used in the deployments dialog, under <strong class=" ">Containers</strong> by clicking on <img  class="confluence-embedded-image confluence-thumbnail"  src="images/download/thumbnails/953581669/secret-icon.png" alt="images/download/thumbnails/953581669/secret-icon.png"  height="32" />
+ and selecting one of the available secrets:</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/deploy-secret.png" alt="images/download/attachments/953581669/deploy-secret.png" width="1100"  />
+    </p>
+<p   
+>This value of this secret (in this case 'password' from the secret 'r-sec-1' ) is now available to one of the container in your pod.</p>
+<p   
+>Associations between deployments and secret in the IDE are shows with links that are labeled 'secret':</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/secret-03.png" alt="images/download/attachments/953581669/secret-03.png" width="1000"  />
+    </p>
+<p   
+></p>
+    </div>
+    <div class="section section-1" id="src-953581669_RDEIIDE-ServiceAccount">
+        <h1 class="heading "><span>ServiceAccount</span></h1>
+<p   
+><strong class=" ">Doc</strong>: <a  class="external-link" href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/">configure-service-account</a></p>
+<p   
+><strong class=" ">Video</strong>: <a target=video  href="attachments/976801050/1/service-account.webm">service-account.webm</a></p>
+<p   
+></p>
+<p   
+>    <span style="color: #222222;">
+A service account provides an identity for processes that run in a Pod. So far, our pods need only access to their file-system and the network, but what if our app need to access the Kubernetes API, to get a list of resources for example (pods, services, etc..). Then we need to give special access to our pods. This can be done with ServiceAccounts. This     </span>
+ServiceAccount must be specified in our deployment.</p>
+<p   
+>For example, if your app need a list of all the other pods in your namespace, your ServiceAccount will need that capability (pods:list, pods:get). To achieve this, we first create a Role with the correct capabilities:</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/role-02.png" alt="images/download/attachments/953581669/role-02.png" width="1000"  />
+    </p>
+<p   
+></p>
+<p   
+>We then create a ServiceAccount and connect it with the Role. This will automatically create the necessary RoleBinding to associate Role and ServiceAccount.</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/role-sa2.png" alt="images/download/attachments/953581669/role-sa2.png"  height="212" />
+    </p>
+<p   
+></p>
+<p   
+>Then change the ServiceAccount used by our deployment:</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/sa-deploy.png" alt="images/download/attachments/953581669/sa-deploy.png" width="1000"  />
+    </p>
+<p   
+></p>
+<p   
+>We then <strong class=" ">Save Changes</strong> and apply the new specs , we can verify that the new ServiceAccount has the correct kubernetes RBAC in the <strong class=" ">Run =&gt; RBAC page:</strong></p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/role-sac10.png" alt="images/download/attachments/953581669/role-sac10.png"  height="250" />
+    </p>
+<p   
+></p>
+    </div>
+    <div class="section section-1" id="src-953581669_safe-id-UkRFSUlERS1JbmdyZXNzKGJldGEp">
+        <h1 class="heading "><span>Ingress (beta)</span></h1>
+<p   
+><strong class=" ">Video</strong>: <a target=video  href="attachments/976801080/2/ingress.webm">ingress.webm</a></p>
+<p   
+><strong class=" ">Doc</strong>: <a  class="external-link" href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Ingress</a></p>
+<p   
+>If you have the nginx-ingress-controller installed in your namespace (<a  class="external-link" href="https://github.comcast.com/k8s-eng/rdei-applications/tree/master/nginx-ingress-proxy">https://github.comcast.com/k8s-eng/rdei-applications/tree/master/nginx-ingress-proxy</a>), you can use the ingress resource to control access to your services using only one LoadBalancer. The ingress-controller allow to specify different services for different url host and path. This is the form where host and paths can be added:</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/ingress-01.png" alt="images/download/attachments/953581669/ingress-01.png"   />
+    </p>
+<p   
+></p>
+<p   
+>In this example, the ingress is configured to send traffic from chris.comcast.net/app to service r-svc-5 and chris.comcast.net/app2 to service r-svc-1.</p>
+<p   
+>In the IDE, the Ingress resources is created with a job that automatically creates the self-signed certificates needed by the ingress and saves them in a Secret. For applications that are composed of multiple micro-services, each with their own kubernetes Service, ingress is a very convenient way to manage routes.</p>
+<p   
+>Ingress can be tested using curl for example:</p>
+    <div  class="confbox programlisting" style="counter-reset: scroll-code-numbering 1">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="defaultnew syntaxhighlighter scroll-html-formatted-code" data-linenumbers="false" data-firstline="1">
+<div class="line"><code class="plain">$ curl -H </code><code class="string">"Host: chris.comcast.net"</code><code class="plain"> https:</code><code class="comments">//nginx-controller-service/app2    # send request to r-svc-1, called from inside the cluster</code></div>
+<div class="line"><code class="plain">$ curl -H </code><code class="string">"Host: chris.comcast.net"</code><code class="plain"> https:</code><code class="comments">//load-balancer-ip:port/app2       # send request to r-svc-1, called from outside the cluster, if LB is present</code></div>
+<div class="line"><code class="plain"># start port-forwarding</code></div>
+<div class="line"><code class="plain">$ kubectl port-forward service/nginx-controller-service </code><code class="value">9090</code><code class="plain">:</code><code class="value">443</code><code class="plain"> &amp;           # port-forwarding    </code></div>
+<div class="line"><code class="plain">$ curl -H </code><code class="string">"Host: chris.comcast.net"</code><code class="plain"> https:</code><code class="comments">//localhost:9090/app2              # using port-forwarding outside of cluster.  </code></div>
+</div>
+    </div>
+<p   
+></p>
+    </div>
+    <div class="section section-1" id="src-953581669_RDEIIDE-StatefulSet">
+        <h1 class="heading "><span>StatefulSet</span></h1>
+<p   
+><strong class=" ">Doc</strong>: <a  class="external-link" href="https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/">statefulset</a></p>
+<p   
+><strong class=" ">video</strong>: <a target=video   href="attachments/976801120/1/yb-demo.webm">yb-demo.webm</a></p>
+<p   
+>As expected, Statefulset are used for stateful applications like databases where the state and identity of the pods need to stay the same across restarts.</p>
+<p   
+>Yugabyte is a good example of a StatefulSet application (<a  class="external-link" href="https://github.com/yugabyte/yugabyte-db#get-started">https://github.com/yugabyte/yugabyte-db#get-started</a>). It uses Headless Services for DNS access to all the pods and support horizontal scaling using the statefulset replica count.</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/yb-arch.png" alt="images/download/attachments/953581669/yb-arch.png" width="900"  />
+    </p>
+<p   
+></p>
+    <div class="section section-2" id="src-953581669_RDEIIDE-YugabyteinRDEIIDE">
+        <h2 class="heading "><span>Yugabyte in RDEI IDE</span></h2>
+<p   
+>This application is made of 2 Statefulsets: one for the metadata and one for the data itself. The metadata StatefulSet (yb-master) should always have 3 replicas for availability.</p>
+<p   
+>The data StatefulSet includes at least 3 pods (called tablets) but can be increased to support larger database. Even with data-replicas=10, the same block of data is only replicated in 3 pods out of the 10 (default configuration).</p>
+<p   
+>These 2 StatefulSets are using VolumeClaim Templates to dynamically create Portworx storage for each pod as they are being created. This is done using the Stork scheduler. This dynamic allocation function is only available on namespaces that have Public Storage Classes configured - in this case <strong class=" ">rdei-database-io-storage</strong>:</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/public-storage-01.png" alt="images/download/attachments/953581669/public-storage-01.png" width="800"  />
+    </p>
+<p   
+></p>
+<p   
+>This same storage-class is used when configuring the <strong class=" ">VolumeMounts</strong> of your StatefulSet:</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/public-storage-02.png" alt="images/download/attachments/953581669/public-storage-02.png" width="1100"  />
+    </p>
+<p   
+></p>
+<p   
+>This example is the IDE public project yugabyte. It also includes a LoadBalancer to access the metadata-UI and the tablets-UI from outside the cluster.</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/yugabyte.png" alt="images/download/attachments/953581669/yugabyte.png" width="900"  />
+    </p>
+<p   
+></p>
+<p   
+>We can see in <strong class=" ">Run =&gt; Services</strong> the 2 Headless Services that provides DNS access to each pod. For example the first master pod can be accessed from inside the cluster at yb-master-0.yb-masters .</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/dialog-service3.png" alt="images/download/attachments/953581669/dialog-service3.png" width="1200"  />
+    </p>
+<p   
+></p>
+    </div>
+    </div>
+    <div class="section section-1" id="src-953581669_RDEIIDE-CronJobs">
+        <h1 class="heading "><span>CronJobs</span></h1>
+<p   
+><strong class=" ">Doc</strong>: <a  class="external-link" href="https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/">CronJobs</a></p>
+<p   
+><strong class=" ">Video</strong>: <a target=video  href="attachments/976801126/2/cj2.webm">cj2.webm</a></p>
+<p   
+>Cronjobs can be used to execute certain tasks as fixed intervals. This is the form:</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/cronjob4.png" alt="images/download/attachments/953581669/cronjob4.png" width="1000"  />
+    </p>
+<p   
+></p>
+<p   
+>In this example, the containers associated with this Cronjob will be executed every minute.</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/cronjob5.png" alt="images/download/attachments/953581669/cronjob5.png" width="1200"  />
+    </p>
+<p   
+></p>
+    </div>
+    <div class="section section-1" id="src-953581669_RDEIIDE-ImportSpecs">
+        <h1 class="heading "><span>Import Specs</span></h1>
+<p   
+>It is possible to import Specs into the IDE using <strong class=" ">Projects =&gt; Import Specs</strong> and clicking <strong class=" ">ACCEPT=&quot;.YAML&quot;</strong> to import yaml files, then     <span style="color: #003366;">
+<strong class=" ">Import in IDE</strong>    </span>
+ to import the specs in your project. Currently , the RDEI IDE cannot import helm charts.</p>
+<p   
+>When specs are imported, they are modified to work with RDEI:</p>
+<ul class=" "><li class=" "><p   
+>CPU/MEM requests/limits are added when missing.</p>
+</li><li class=" "><p   
+>Stork is added to statefulset for Storage allocation.</p>
+</li><li class=" "><p   
+>Missing port names are added for readability.</p>
+</li><li class=" "><p   
+>Resources are connected to form the UI graph (best effort).</p>
+</li></ul><p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/import02.png" alt="images/download/attachments/953581669/import02.png" width="1100"  />
+    </p>
+<p   
+></p>
+<p   
+>The IDE will refuse to <strong class=" ">Run=&gt;Apply</strong> the specs if the images are not in hub.comcast.net. The dialog <strong class=" ">Projects =&gt; Image Processing</strong> can be used to help the conversion of the images.</p>
+<p   
+>Note: The project must be saved before Image Processing can be used.</p>
+<p   
+>For example, if one of the imported images is from hub.docker.net , then this page will generate the conversion commands. The user need to cut and paste the command and execute them in his own environment.</p>
+<p   
+><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/image-proc.png" alt="images/download/attachments/953581669/image-proc.png" width="1200"  />
+    </p>
+<p   
+></p>
+    </div>
+    <div class="section section-1" id="src-953581669_RDEIIDE-CommonIssues">
+        <h1 class="heading "><span>Common Issues</span></h1>
+    <div  class="tablewrap">
+        <table class="wrapped confluenceTable">
+                    <colgroup>
+                                    <col />
+                                    <col />
+                            </colgroup>
+        <thead class=" ">    <tr>
+            <td  class="confluenceTh" rowspan="1" colspan="1">
+    <p   
+>Issue</p>
+            </td>
+                <td  class="confluenceTh" rowspan="1" colspan="1">
+    <p   
+>Description</p>
+            </td>
+        </tr>
+</thead><tfoot class=" "></tfoot><tbody class=" ">    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>Zone</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>RDEI uses zones for security. The green zone has access to Comcast network but not the Internet and can use Persistent Storage. Databases for example should be in green. green can access blue and blue can access the Internet. See <a  class="external-link" href="https://rdei.comcast.net/support/articles/faq">https://rdei.comcast.net/support/articles/faq</a></p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>VolumeClaimTemplate</p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+>StatefulSet use VolumeClaimTemplates to dynamically generate Portworx PV and corresponding PVC. This requires that the pods run on nodes where Portworx is present. The spec.template.spec.schedulerName='stork' is used to schedule pods on the correct nodes. This scheduler is automatically selected by the IDE for StatefulSet. VolumeClaimTemplates also need Public Storage Classes allocation in your RDEI namepace. See <a  class="external-link" href="https://stage.rdei.comcast.net/support/articles/creating-public-storage">https://stage.rdei.comcast.net/support/articles/creating-public-storage</a></p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+        </tr>
+    <tr>
+            <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+                <td  class="confluenceTd" rowspan="1" colspan="1">
+    <p   
+></p>
+            </td>
+        </tr>
+</tbody>        </table>
+            </div>
+<p   
+></p>
+<p   
+></p>
+<p   
+></p>
+<p   
+></p>
+<p   
+></p>
+<p   
+></p>
+<p   
+></p>
+<p   
+></p>
+    </div>
+        </div>
+
+    </article>
+
+
+            <nav id="ht-post-nav">
+            </nav>    
+            
+    <footer id="ht-footer">
+    <a href="#" id="ht-jump-top" class="sp-aui-icon-small sp-aui-iconfont-arrows-up"></a>
+</footer></div>
+
+<div>
+    <div id="ht-mq-detect"></div>
+</div>
+
+
+    <script src="assets/js/expand-macro.js"></script>
+</body>
+</html>

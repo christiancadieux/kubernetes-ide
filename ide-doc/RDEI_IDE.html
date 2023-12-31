@@ -168,7 +168,7 @@ storage (PersistentVolume, PersistentVolumeClaim), compute (Deployment, ConfigMa
 <p   
 ></p>
 <p   
-><strong class=" ">6 -</strong> Select a <strong class=" ">Kubernetes Load-Balancer </strong>from the list of available Load-Balancers. These resources , just like the NFS PVs should already have been created using <strong class=" ">Bindings =&gt; Load Balancer</strong> in RDEI. Remember to select a green LB if your deployment is in a green zone.</p>
+><strong class=" ">6 -</strong> Select a <strong class=" ">Kubernetes Load-Balancer </strong>from the list of available Load-Balancers. These resources , just like the NFS PVs should already have been created using <strong class=" ">Bindings =&gt; Load Balancer</strong> in IDE. Remember to select a green LB if your deployment is in a green zone.</p>
 <p   
 ><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/lb-be-select.png" alt="images/download/attachments/953581669/lb-be-select.png" width="1100"  />
     </p>
@@ -196,7 +196,7 @@ storage (PersistentVolume, PersistentVolumeClaim), compute (Deployment, ConfigMa
 <p   
 ></p>
 <p   
->Nginx is accessible by anybody at Comcast on the LoadBalancer at IP=10.54.213.147 and port 4002:</p>
+>Nginx is accessible by anybody on the LoadBalancer at IP=10.54.213.147 and port 4002:</p>
 <p   
 ><img  class="confluence-embedded-image confluence-content-image-border"  src="images/download/attachments/953581669/ws.png" alt="images/download/attachments/953581669/ws.png" width="1000" height="480" />
     </p>
@@ -914,25 +914,25 @@ ServiceAccount must be specified in our deployment.</p>
 <p   
 ><strong class=" ">Doc</strong>: <a  class="external-link" href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Ingress</a></p>
 <p   
->If you have the nginx-ingress-controller installed in your namespace (<a  class="external-link" href="https://github.comcast.com/k8s-eng/rdei-applications/tree/master/nginx-ingress-proxy">https://github.comcast.com/k8s-eng/rdei-applications/tree/master/nginx-ingress-proxy</a>), you can use the ingress resource to control access to your services using only one LoadBalancer. The ingress-controller allow to specify different services for different url host and path. This is the form where host and paths can be added:</p>
+>If you have the nginx-ingress-controller installed in your namespace , you can use the ingress resource to control access to your services using only one LoadBalancer. The ingress-controller allow to specify different services for different url host and path. This is the form where host and paths can be added:</p>
 <p   
 ><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/ingress-01.png" alt="images/download/attachments/953581669/ingress-01.png"   />
     </p>
 <p   
 ></p>
 <p   
->In this example, the ingress is configured to send traffic from chris.comcast.net/app to service r-svc-5 and chris.comcast.net/app2 to service r-svc-1.</p>
+>In this example, the ingress is configured to send traffic from chris.test.net/app to service r-svc-5 and chris.test.net/app2 to service r-svc-1.</p>
 <p   
 >In the IDE, the Ingress resources is created with a job that automatically creates the self-signed certificates needed by the ingress and saves them in a Secret. For applications that are composed of multiple micro-services, each with their own kubernetes Service, ingress is a very convenient way to manage routes.</p>
 <p   
 >Ingress can be tested using curl for example:</p>
     <div  class="confbox programlisting" style="counter-reset: scroll-code-numbering 1">
                 <div xmlns="http://www.w3.org/1999/xhtml" class="defaultnew syntaxhighlighter scroll-html-formatted-code" data-linenumbers="false" data-firstline="1">
-<div class="line"><code class="plain">$ curl -H </code><code class="string">"Host: chris.comcast.net"</code><code class="plain"> https:</code><code class="comments">//nginx-controller-service/app2    # send request to r-svc-1, called from inside the cluster</code></div>
-<div class="line"><code class="plain">$ curl -H </code><code class="string">"Host: chris.comcast.net"</code><code class="plain"> https:</code><code class="comments">//load-balancer-ip:port/app2       # send request to r-svc-1, called from outside the cluster, if LB is present</code></div>
+<div class="line"><code class="plain">$ curl -H </code><code class="string">"Host: chris.test.net"</code><code class="plain"> https:</code><code class="comments">//nginx-controller-service/app2    # send request to r-svc-1, called from inside the cluster</code></div>
+<div class="line"><code class="plain">$ curl -H </code><code class="string">"Host: chris.test.net"</code><code class="plain"> https:</code><code class="comments">//load-balancer-ip:port/app2       # send request to r-svc-1, called from outside the cluster, if LB is present</code></div>
 <div class="line"><code class="plain"># start port-forwarding</code></div>
 <div class="line"><code class="plain">$ kubectl port-forward service/nginx-controller-service </code><code class="value">9090</code><code class="plain">:</code><code class="value">443</code><code class="plain"> &amp;           # port-forwarding    </code></div>
-<div class="line"><code class="plain">$ curl -H </code><code class="string">"Host: chris.comcast.net"</code><code class="plain"> https:</code><code class="comments">//localhost:9090/app2              # using port-forwarding outside of cluster.  </code></div>
+<div class="line"><code class="plain">$ curl -H </code><code class="string">"Host: chris.test.net"</code><code class="plain"> https:</code><code class="comments">//localhost:9090/app2              # using port-forwarding outside of cluster.  </code></div>
 </div>
     </div>
 <p   
@@ -1017,7 +1017,7 @@ ServiceAccount must be specified in our deployment.</p>
 <strong class=" ">Import in IDE</strong>    </span>
  to import the specs in your project. Currently , the Kubernetes IDE cannot import helm charts.</p>
 <p   
->When specs are imported, they are modified to work with RDEI:</p>
+>When specs are imported, they are modified to work with IDE:</p>
 <ul class=" "><li class=" "><p   
 >CPU/MEM requests/limits are added when missing.</p>
 </li><li class=" "><p   
@@ -1032,7 +1032,7 @@ ServiceAccount must be specified in our deployment.</p>
 <p   
 ></p>
 <p   
->The IDE will refuse to <strong class=" ">Run=&gt;Apply</strong> the specs if the images are not in hub.comcast.net. The dialog <strong class=" ">Projects =&gt; Image Processing</strong> can be used to help the conversion of the images.</p>
+>The IDE will refuse to <strong class=" ">Run=&gt;Apply</strong> the specs if the images are not in hub.test.net. The dialog <strong class=" ">Projects =&gt; Image Processing</strong> can be used to help the conversion of the images.</p>
 <p   
 >Note: The project must be saved before Image Processing can be used.</p>
 <p   
@@ -1068,7 +1068,7 @@ ServiceAccount must be specified in our deployment.</p>
             </td>
                 <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
->Kubernetes uses zones for security. The green zone has access to Comcast network but not the Internet and can use Persistent Storage. Databases for example should be in green. green can access blue and blue can access the Internet. See <a  class="external-link" href="https://rdei.comcast.net/support/articles/faq">https://rdei.comcast.net/support/articles/faq</a></p>
+>Here the system uses zones for security. </p>
             </td>
         </tr>
     <tr>
@@ -1078,7 +1078,7 @@ ServiceAccount must be specified in our deployment.</p>
             </td>
                 <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
->StatefulSet use VolumeClaimTemplates to dynamically generate Portworx PV and corresponding PVC. This requires that the pods run on nodes where Portworx is present. The spec.template.spec.schedulerName='stork' is used to schedule pods on the correct nodes. This scheduler is automatically selected by the IDE for StatefulSet. VolumeClaimTemplates also need Public Storage Classes allocation in your Kubernetes namepace. See <a  class="external-link" href="https://stage.rdei.comcast.net/support/articles/creating-public-storage">https://stage.rdei.comcast.net/support/articles/creating-public-storage</a></p>
+>StatefulSet use VolumeClaimTemplates to dynamically generate Portworx PV and corresponding PVC. This requires that the pods run on nodes where Portworx is present. The spec.template.spec.schedulerName='stork' is used to schedule pods on the correct nodes. This scheduler is automatically selected by the IDE for StatefulSet. VolumeClaimTemplates also need Public Storage Classes allocation in your Kubernetes namepace. </p>
             </td>
         </tr>
     <tr>

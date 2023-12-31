@@ -11,3 +11,9 @@ Kube IDE is also useful for documentation. Here is an example of a project using
 ![157493775-72986497-83fb-426a-8170-15ffc5d0161b png (1761×1074)20220309115700](https://user-images.githubusercontent.com/10535265/157512365-0a0e80b3-6b46-453d-adb0-ce926c11b4cc.png)
 
 
+![ingress2](https://github.com/christiancadieux/kubernetes-ide/assets/10535265/0589ed49-e727-4089-baa6-da0af0b0e132)
+
+![ide](https://github.com/christiancadieux/kubernetes-ide/assets/10535265/2d5087de-be42-4be0-85fd-c81991cfff73)
+
+
+https://github.com/christiancadieux/kubernetes-ide/assets/10535265/59757577-416e-4c6f-a3d3-11c8b10a43f6

@@ -128,8 +128,6 @@ storage (PersistentVolume, PersistentVolumeClaim), compute (Deployment, ConfigMa
 ><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/welcome2.png" alt="images/download/attachments/953581669/welcome2.png"  style="width:1200px" />
     </p>
 <p   
->Note: Kubernetes IDE works best on the <strong class=" ">night</strong> background.</p>
-<p   
 ></p>
 <p   
 >Let start with an example. We will create an NGINX server in the form of a kubernetes deployment, associate our deployment with NFS storage (PV/PVC), add a service, add a Load-Balancer, create these resources in our namespace and access our new NGINX web-server using a browser. In this case, I am using a project called sample2 in my own namespace called cadieux2.</p>
@@ -137,7 +135,7 @@ storage (PersistentVolume, PersistentVolumeClaim), compute (Deployment, ConfigMa
     <div class="section section-1" id="src-953581669_RDEIIDE-DeploymentDemo-Nginx">
         <h1 class="heading "><span>Deployment Demo - Nginx</span></h1>
 
-><strong class=" ">Deployment Steps</strong></p>
+<strong class=" ">Deployment Steps</strong></p>
 
 
 <p><strong class=" ">1 -</strong> Select an NFS PV from the list of available PVs in your cluster. These PVs were previously created using <strong class=" ">Bindings =&gt; NFS</strong> in Kubernetes itself. This will create a PV resource and a PVC resource in the IDE. Only the PVC resource will be created since the PV was already created and PVs are cluster-wide resources that only Kubernetes itself can create.</p>
@@ -194,7 +192,7 @@ storage (PersistentVolume, PersistentVolumeClaim), compute (Deployment, ConfigMa
 <p   
 ></p>
 <p   
->Nginx is accessible by anybody on the LoadBalancer at IP=10.54.213.147 and port 4002:</p>
+>Nginx is accessible by anybody on the LoadBalancer at IP=xx.54.213.147 and port 4002:</p>
 <p   
 ><img  class="confluence-embedded-image confluence-content-image-border"  src="images/download/attachments/953581669/ws.png" alt="images/download/attachments/953581669/ws.png" width="1000" height="480" />
     </p>
@@ -557,8 +555,7 @@ Projects can be created from scratch or by importing your own yaml files.    </s
             </td>
                 <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
->S    <span style="color: #4d5156;">
-pecifies the number of replicas that an application can tolerate having, relative to how many it is intended to have.    </span>
+>Specifies the number of replicas that an application can tolerate having, relative to how many it is intended to have.    </span>
 </p>
             </td>
         </tr>

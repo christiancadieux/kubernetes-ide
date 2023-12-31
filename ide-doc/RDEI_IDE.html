@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>RDEI IDE </title>
+    <title>Kubernetes IDE </title>
 
     
     <link rel="stylesheet" href="assets/css/expand-macro.css">
@@ -50,7 +50,7 @@
     </header>   	
 <aside id="ht-sidebar">
 
-<div style="font-size:1.4em;margin:10px 0px 10px 15px">RDEI IDE - Doc</div>
+<div style="font-size:1.4em;margin:10px 0px 10px 15px">Kubernetes IDE - Doc</div>
 
 <ul style="margin:20px 0px 0px 40px;font-size:1.1em" class="toc-indentation "><li class=" "><p   
 ><a   href="#src-953581669_RDEIIDE-Intro">Introduction</a></p>
@@ -89,7 +89,7 @@
 </li><li class=" "><p   
 ><a   href="#src-953581669_RDEIIDE-StatefulSet">StatefulSet</a></p>
 <ul class="toc-indentation "><li class=" "><p   
-><a   href="#src-953581669_RDEIIDE-YugabyteinRDEIIDE">Yugabyte in RDEI IDE</a></p>
+><a   href="#src-953581669_RDEIIDE-YugabyteinRDEIIDE">Yugabyte in Kubernetes IDE</a></p>
 </li></ul></li><li class=" "><p   
 ><a   href="#src-953581669_RDEIIDE-CronJobs">CronJobs</a></p>
 </li><li class=" "><p   
@@ -119,16 +119,16 @@
         <div style="height:1px"></div>
         <h1 class="heading "><span>Introduction</span></h1>
 <p   
->The RDEI IDE is a visual development environment for RDEI and Kubernetes. It can be used to learn kubernetes or to develop prototypes in the RDEI environment. It allows to build applications (called <strong class=" ">projects</strong>) by creating, importing and associating kubernetes resources. These projects can be saved and executed in one of your namespaces.</p>
+>The Kubernetes IDE is a visual development environment for Kubernetes and Kubernetes. It can be used to learn kubernetes or to develop prototypes in the Kubernetes environment. It allows to build applications (called <strong class=" ">projects</strong>) by creating, importing and associating kubernetes resources. These projects can be saved and executed in one of your namespaces.</p>
 <p   
->A picture is worth a thousand words - RDEI IDE is also useful for documentation. Here is an example of a project using a variety of resources:
+>A picture is worth a thousand words - Kubernetes IDE is also useful for documentation. Here is an example of a project using a variety of resources:
 storage (PersistentVolume, PersistentVolumeClaim), compute (Deployment, ConfigMap, Secret), RBAC (Role, RoleBinding, ServiceAccount) and networking (Service, LoadBalancer, Ingress)
 </p>
 <p   
 ><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/welcome2.png" alt="images/download/attachments/953581669/welcome2.png"  style="width:1200px" />
     </p>
 <p   
->Note: RDEI IDE works best on the <strong class=" ">night</strong> background.</p>
+>Note: Kubernetes IDE works best on the <strong class=" ">night</strong> background.</p>
 <p   
 ></p>
 <p   
@@ -142,7 +142,7 @@ storage (PersistentVolume, PersistentVolumeClaim), compute (Deployment, ConfigMa
 ><strong class=" ">Deployment Steps</strong></p>
 
 
-<p><strong class=" ">1 -</strong> Select an NFS PV from the list of available PVs in your cluster. These PVs were previously created using <strong class=" ">Bindings =&gt; NFS</strong> in RDEI itself. This will create a PV resource and a PVC resource in the IDE. Only the PVC resource will be created since the PV was already created and PVs are cluster-wide resources that only RDEI itself can create.</p>
+<p><strong class=" ">1 -</strong> Select an NFS PV from the list of available PVs in your cluster. These PVs were previously created using <strong class=" ">Bindings =&gt; NFS</strong> in Kubernetes itself. This will create a PV resource and a PVC resource in the IDE. Only the PVC resource will be created since the PV was already created and PVs are cluster-wide resources that only Kubernetes itself can create.</p>
 
 <p> <strong class=" ">2 -</strong> Select NGINX from the <strong class=" ">Deployment</strong> drop-down.</p>
 
@@ -168,7 +168,7 @@ storage (PersistentVolume, PersistentVolumeClaim), compute (Deployment, ConfigMa
 <p   
 ></p>
 <p   
-><strong class=" ">6 -</strong> Select a <strong class=" ">RDEI Load-Balancer </strong>from the list of available Load-Balancers. These resources , just like the NFS PVs should already have been created using <strong class=" ">Bindings =&gt; Load Balancer</strong> in RDEI. Remember to select a green LB if your deployment is in a green zone.</p>
+><strong class=" ">6 -</strong> Select a <strong class=" ">Kubernetes Load-Balancer </strong>from the list of available Load-Balancers. These resources , just like the NFS PVs should already have been created using <strong class=" ">Bindings =&gt; Load Balancer</strong> in RDEI. Remember to select a green LB if your deployment is in a green zone.</p>
 <p   
 ><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/lb-be-select.png" alt="images/download/attachments/953581669/lb-be-select.png" width="1100"  />
     </p>
@@ -203,7 +203,7 @@ storage (PersistentVolume, PersistentVolumeClaim), compute (Deployment, ConfigMa
 <p   
 ></p>
 <p   
-><strong class=" ">10 </strong>- You can export your project as a helm chart if you need to make changes outside of the RDEI IDE:</p>
+><strong class=" ">10 </strong>- You can export your project as a helm chart if you need to make changes outside of the Kubernetes IDE:</p>
 <p   
 ><img  class="confluence-embedded-image"  src="images/download/attachments/953581669/export.png" alt="images/download/attachments/953581669/export.png" width="1100"  />
     </p>
@@ -237,7 +237,7 @@ Projects can be created from scratch or by importing your own yaml files.    </s
     <div class="section section-1" id="src-953581669_RDEIIDE-Associationsbetweenresources">
         <h1 class="heading "><span>Associations between resources</span></h1>
 <p   
->RDEI IDE understand the possible relationships between resources. When 2 resources are selected in sequence (clicked) in the UI, the IDE verify if these 2 resources can be associated. For example, a service can be associated with a deployment or a StatefulSet using the pod's labels and the service Selector. When there is an association, the IDE offers a button (top of page) and a dialog to complete the association.</p>
+>Kubernetes IDE understand the possible relationships between resources. When 2 resources are selected in sequence (clicked) in the UI, the IDE verify if these 2 resources can be associated. For example, a service can be associated with a deployment or a StatefulSet using the pod's labels and the service Selector. When there is an association, the IDE offers a button (top of page) and a dialog to complete the association.</p>
 <p   
 >In the IDE, the previous selection is dashed-underscore and the current-selection is underscored. Example:</p>
 <p   
@@ -331,7 +331,7 @@ Projects can be created from scratch or by importing your own yaml files.    </s
             </td>
                 <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
->External LoadBalancer. Must be created in advance in RDEI (bindings =&gt; LB). LoadBalancers are connected to services using specific ports (often called backends).</p>
+>External LoadBalancer. Must be created in advance in Kubernetes (bindings =&gt; LB). LoadBalancers are connected to services using specific ports (often called backends).</p>
             </td>
         </tr>
     <tr>
@@ -426,7 +426,7 @@ Projects can be created from scratch or by importing your own yaml files.    </s
             </td>
                 <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
->Cannot be created but will be displayed in the UI when imported. CRDs are cluster-level resources and RDEI users do not have cluster-admin capabilities.</p>
+>Cannot be created but will be displayed in the UI when imported. CRDs are cluster-level resources and Kubernetes users do not have cluster-admin capabilities.</p>
             </td>
         </tr>
     <tr>
@@ -521,7 +521,7 @@ Projects can be created from scratch or by importing your own yaml files.    </s
             </td>
                 <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
->Creates storage (NFS, Portworkx) . Must be created in advance in RDEI (Bindings =&gt; NFS)</p>
+>Creates storage (NFS, Portworkx) . Must be created in advance in Kubernetes (Bindings =&gt; NFS)</p>
             </td>
         </tr>
     <tr>
@@ -954,7 +954,7 @@ ServiceAccount must be specified in our deployment.</p>
 <p   
 ></p>
     <div class="section section-2" id="src-953581669_RDEIIDE-YugabyteinRDEIIDE">
-        <h2 class="heading "><span>Yugabyte in RDEI IDE</span></h2>
+        <h2 class="heading "><span>Yugabyte in Kubernetes IDE</span></h2>
 <p   
 >This application is made of 2 Statefulsets: one for the metadata and one for the data itself. The metadata StatefulSet (yb-master) should always have 3 replicas for availability.</p>
 <p   
@@ -1015,7 +1015,7 @@ ServiceAccount must be specified in our deployment.</p>
 <p   
 >It is possible to import Specs into the IDE using <strong class=" ">Projects =&gt; Import Specs</strong> and clicking <strong class=" ">ACCEPT=&quot;.YAML&quot;</strong> to import yaml files, then     <span style="color: #003366;">
 <strong class=" ">Import in IDE</strong>    </span>
- to import the specs in your project. Currently , the RDEI IDE cannot import helm charts.</p>
+ to import the specs in your project. Currently , the Kubernetes IDE cannot import helm charts.</p>
 <p   
 >When specs are imported, they are modified to work with RDEI:</p>
 <ul class=" "><li class=" "><p   
@@ -1068,7 +1068,7 @@ ServiceAccount must be specified in our deployment.</p>
             </td>
                 <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
->RDEI uses zones for security. The green zone has access to Comcast network but not the Internet and can use Persistent Storage. Databases for example should be in green. green can access blue and blue can access the Internet. See <a  class="external-link" href="https://rdei.comcast.net/support/articles/faq">https://rdei.comcast.net/support/articles/faq</a></p>
+>Kubernetes uses zones for security. The green zone has access to Comcast network but not the Internet and can use Persistent Storage. Databases for example should be in green. green can access blue and blue can access the Internet. See <a  class="external-link" href="https://rdei.comcast.net/support/articles/faq">https://rdei.comcast.net/support/articles/faq</a></p>
             </td>
         </tr>
     <tr>
@@ -1078,7 +1078,7 @@ ServiceAccount must be specified in our deployment.</p>
             </td>
                 <td  class="confluenceTd" rowspan="1" colspan="1">
     <p   
->StatefulSet use VolumeClaimTemplates to dynamically generate Portworx PV and corresponding PVC. This requires that the pods run on nodes where Portworx is present. The spec.template.spec.schedulerName='stork' is used to schedule pods on the correct nodes. This scheduler is automatically selected by the IDE for StatefulSet. VolumeClaimTemplates also need Public Storage Classes allocation in your RDEI namepace. See <a  class="external-link" href="https://stage.rdei.comcast.net/support/articles/creating-public-storage">https://stage.rdei.comcast.net/support/articles/creating-public-storage</a></p>
+>StatefulSet use VolumeClaimTemplates to dynamically generate Portworx PV and corresponding PVC. This requires that the pods run on nodes where Portworx is present. The spec.template.spec.schedulerName='stork' is used to schedule pods on the correct nodes. This scheduler is automatically selected by the IDE for StatefulSet. VolumeClaimTemplates also need Public Storage Classes allocation in your Kubernetes namepace. See <a  class="external-link" href="https://stage.rdei.comcast.net/support/articles/creating-public-storage">https://stage.rdei.comcast.net/support/articles/creating-public-storage</a></p>
             </td>
         </tr>
     <tr>

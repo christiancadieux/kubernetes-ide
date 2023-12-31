@@ -21,4 +21,4 @@ Kube IDE is also useful for documentation. Here is an example of a project using
 
 ## DOC
 
-[doc](https://htmlpreview.github.io/?https://github.com/christiancadieux/kubernetes-ide/blob/main/ide-doc/RDEI_IDE.html)
+[documentation](https://htmlpreview.github.io/?https://github.com/christiancadieux/kubernetes-ide/blob/main/ide-doc/RDEI_IDE.html)

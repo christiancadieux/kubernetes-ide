@@ -1,6 +1,8 @@
 # kubernetes-ide
 IDE for kubernetes
 
+[documentation](https://htmlpreview.github.io/?https://github.com/christiancadieux/kubernetes-ide/blob/main/ide-doc/RDEI_IDE.html)
+
 
 
 The Kubernetes IDE is a visual development environment for Kubernetes. It can be used to learn kubernetes or to develop prototypes in the RDEI environment. It allows to build applications (called projects) by creating, importing and associating kubernetes resources. These projects can be saved and executed in one of your namespaces.
@@ -18,10 +20,6 @@ Kubernetes IDE is also useful for documentation. Here is an example of a project
 
 ![ide](https://github.com/christiancadieux/kubernetes-ide/assets/10535265/e5b19e2c-81b6-4653-a3aa-48c8bee15207)
 
-
-## DOC
-
-[documentation](https://htmlpreview.github.io/?https://github.com/christiancadieux/kubernetes-ide/blob/main/ide-doc/RDEI_IDE.html)
 
 
 ## Exposing relationships between resources

@@ -5,7 +5,7 @@ IDE for kubernetes
 
 
 
-The Kubernetes IDE is a visual development environment for Kubernetes. It can be used to learn kubernetes or to develop prototypes in the RDEI environment. It allows to build applications (called projects) by creating, importing and associating kubernetes resources. These projects can be saved and executed in one of your namespaces.
+The Kubernetes IDE is a visual development environment for Kubernetes. It can be used to learn kubernetes or to develop prototypes . It allows to build applications (called projects) by creating, importing and associating kubernetes resources. These projects can be saved and executed in one of your namespaces.
 
 Kubernetes IDE is also useful for documentation. Here is an example of a project using a variety of resources:   storage (PersistentVolume, PersistentVolumeClaim), compute (Deployment, ConfigMap, Secret), RBAC (Role, RoleBinding, ServiceAccount) and networking (Service, LoadBalancer, Ingress):
 
